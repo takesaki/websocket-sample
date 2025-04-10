@@ -1,0 +1,39 @@
+{
+  "name": "fireblocks-webhook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/index.ts",
+    "build": "tsc -p .",
+    "dev": "npx ts-node src/index.ts",
+    "test": "jest",
+    "lambda": "npm run build && mkdir -p dist && mkdir -p lambda && cp package.json dist/ && cd dist && npm install --production && zip -r ../lambda/function.zip ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@vendia/serverless-express": "^4.12.6",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "nodemon": "^3.1.9",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/helmet": "^0.0.48",
+    "@types/jest": "^29.5.14",
+    "@types/supertest": "^6.0.2",
+    "@types/ws": "^8.18.1",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
