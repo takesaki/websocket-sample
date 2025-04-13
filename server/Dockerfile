@@ -24,6 +24,7 @@ RUN npm ci --omit=dev
 
 USER node
 COPY --from=builder /app/dist ./dist
+COPY ./public ./public
 
 ENV PORT 8080
 
