@@ -82,6 +82,7 @@ const send = (message: string) => {
 }
 
 .send-button {
-  min-width: 120px;
+  min-width: 100px;
+  margin: 0 2px;
 }
 </style>

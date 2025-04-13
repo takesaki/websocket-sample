@@ -10,7 +10,8 @@ const socketId = ref<number>(-1);
 // WebSocket event handlers
 const setupWebSocket = () => {
   if (ws.value?.readyState === WebSocket.OPEN) return;
-  ws.value = new WebSocket('ws://localhost:8080/ws')
+  //ws.value = new WebSocket('ws://localhost:8080/ws')
+  ws.value = new WebSocket('wss://ws.takenet.dev/ws')
   console.log('Initializing WebSocket:', ws); 
 
   ws.value.onopen = () => {
@@ -39,6 +40,8 @@ const setupWebSocket = () => {
 
   ws.value.onclose = () => {
     console.log('WebSocket connection closed');
+    console.log('Reconnecting...'); 
+    setupWebSocket();
   };
 };
 
